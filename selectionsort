@@ -1,0 +1,45 @@
+/*
+algorithm for selection sort:
+ step 1:run an outer loop from index 0 to n-1 (use i)
+ step 2:take a variable called min and set it to i
+ step 3:run the inner loop from index i+1 to size-1 (use j)
+ step 4:check if(a[j]<a[min]);if true ,set min to j;
+ step 5:after coming out of inner loop swap values a[i]=a[min];
+ */
+ #include<iostream>
+using namespace std;
+void sort(int *a,int n)
+{
+    int i,j;
+    for(i=0;i<=n-2;i++)
+    {
+        int min=i;
+        for(j=i+1;j<=n-1;j++)
+        {
+           if(a[j]<a[min])
+           {
+            min=j;
+           }
+        }
+        int temp=a[i];
+        a[i]=a[min];
+        a[min]=temp;
+    }
+    int k;
+    for(i=0;i<n;i++)
+    {
+        cout<<a[i]<<" " ;
+    }
+}
+int main()
+{
+    int i,n;
+    cin>>n;
+    int a[n];
+    for(i=0;i<n;i++)
+    {
+        cin>>a[i];
+    }
+    sort(a,n);
+}
+
